@@ -1,0 +1,10 @@
+{
+  "blogs": [
+    {
+      "title": "Blog title",
+      "blogContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia dolorem quae distinctio aspernatur enim dolor doloremque aperiam magni et at.",
+      "author": "Written by Bash",
+      "id": 1
+    }
+  ]
+}
