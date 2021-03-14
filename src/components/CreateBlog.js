@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const CreateBlog = ({ addBlog }) => {
 
   const [title, setTitle] = useState('');
   const [blogContent, setBlogContent] = useState('');
   const [author, setAuthor] = useState('');
+  const history = useHistory()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -12,6 +14,7 @@ const CreateBlog = ({ addBlog }) => {
     const blog = { title, blogContent, author}
     
     addBlog(blog);
+    history.push('/');
   }
 
 
@@ -33,6 +36,7 @@ const CreateBlog = ({ addBlog }) => {
       </div>
 
       <button className="btn">Add Blog</button>
+      
     </form>
   )
 }

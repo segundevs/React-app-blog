@@ -1,12 +1,15 @@
+import { Link } from 'react-router-dom';
+
 const Blogs = ({ blogs, deletePost }) => {
 
   return (
     <div>
       {blogs.map(blog => (
         <div className="blog-container" key={blog.id}>
-        <h1 className="blog-title">{blog.title}</h1>
-        <p className="blog-content">{blog.blogContent}</p>
-        <h3 className="blog-author">Written by: {blog.author}</h3>
+          <Link to={`/blogs/${blog.id}`}>
+          <h1 className="blog-title">{blog.title}</h1> 
+          <h3 className="blog-author">Written by: {blog.author}</h3>
+          </Link>
         <button onClick={()=>{deletePost(blog.id)}} className="btn-delete">Delete</button>
         </div>
       ))}
@@ -15,3 +18,5 @@ const Blogs = ({ blogs, deletePost }) => {
 }
 
 export default Blogs
+
+//<p className="blog-content">{blog.blogContent}</p>

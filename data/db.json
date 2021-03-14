@@ -3,8 +3,20 @@
     {
       "title": "Blog title",
       "blogContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia dolorem quae distinctio aspernatur enim dolor doloremque aperiam magni et at.",
-      "author": "Written by Bash",
+      "author": "Bash",
       "id": 1
+    },
+    {
+      "title": "Hello World",
+      "blogContent": "This is a new blog content that you should definitely read",
+      "author": "Segun",
+      "id": 2
+    },
+    {
+      "title": "My first post",
+      "blogContent": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto impedit alias dolores. Quae qui, explicabo recusandae ipsam quaerat labore rerum perspiciatis dolores dolor ut natus quidem possimus culpa rem suscipit non in deserunt modi earum numquam mollitia est voluptas! Fuga sed repellendus temporibus praesentium sit, quis reprehenderit dolores facilis ullam.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto impedit alias dolores. Quae qui, explicabo recusandae ipsam quaerat labore rerum perspiciatis dolores dolor ut natus quidem possimus culpa rem suscipit non in deserunt modi earum numquam mollitia est voluptas! Fuga sed repellendus temporibus praesentium sit, quis reprehenderit dolores facilis ullam.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto impedit alias dolores. Quae qui, explicabo recusandae ipsam quaerat labore rerum perspiciatis dolores dolor ut natus quidem possimus culpa rem suscipit non in deserunt modi earum numquam mollitia est voluptas! Fuga sed repellendus temporibus praesentium sit, quis reprehenderit dolores facilis ullam.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto impedit alias dolores. Quae qui, explicabo recusandae ipsam quaerat labore rerum perspiciatis dolores dolor ut natus quidem possimus culpa rem suscipit non in deserunt modi earum numquam mollitia est voluptas! Fuga sed repellendus temporibus praesentium sit, quis reprehenderit dolores facilis ullam.",
+      "author": "segunBash",
+      "id": 4
     }
   ]
 }

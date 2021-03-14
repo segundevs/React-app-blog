@@ -1,20 +1,22 @@
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Header from './components/Header';
 import Home from './components/Home';
-import About from './components/About';
 import CreateBlog from './components/CreateBlog';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import BlogDetails from './components/BlogDetails';
 
 function App() {
-
   const [blogs, setBlogs] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() =>{
+    //Set timeout and call the function to fetch all blogs from the useEffect hook
     setTimeout(()=>{
       getBlogs();
     }, 1000)
   }, [])
+
 
   //Fetch data from resource
   const getBlogs = async () => {
@@ -23,9 +25,10 @@ function App() {
     const response = await responseData.json();
 
     setBlogs(response)
-
+    //Set loading status back to false after data is fetched
     setIsLoading(false)
   }
+
 
   //Add blog post 
   const addBlog = (blogObject) => {
@@ -35,19 +38,25 @@ function App() {
         headers: { 'Content-Type':'application/json'},
         body: JSON.stringify(blogObject)
       })
-
-      getBlogs()
+      //Fetch blogs again after adding blog post
+      getBlogs()  
     }
-
-    postData();    
+    //set loading status back to false and call the function to post blog
+    setIsLoading(false)
+    postData(); 
+       
   }
+
+  
+  
+  
 
   //Delete blog post
   const deletePost = async (id) => {
         await fetch (`http://localhost:8000/blogs/${id}`, {
         method: 'DELETE'
       });
-
+      //Create an object for the new blogs and set it to the new state of the blogs
       const newBlogs = blogs.filter((blog => blog.id !== id));
 
     setBlogs(newBlogs);
@@ -63,10 +72,10 @@ function App() {
           <Home blogs={blogs} deletePost={deletePost} loading={isLoading}/>
         </Route>
         <Route path="/createblog">
-          <CreateBlog addBlog={addBlog}/>
+          <CreateBlog addBlog={addBlog} />
         </Route>
-        <Route path="/about">
-          <About />
+        <Route path="/blogs/:id">
+          <BlogDetails />
         </Route>
       </Switch>
       </div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -8,7 +7,6 @@ const Header = () => {
         <div className="links">
         <Link className="link" to='/'>Home</Link>
         <Link className="link" to='/createblog'>Create Blog</Link>
-        <Link className="link" to='/about'>About</Link>
         </div>
     </div>
   )
