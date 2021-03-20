@@ -1,7 +1,7 @@
 import Blogs from './Blogs';
 import Loading from './Loading';
 
-
+//Get props from app
 const Home = ({ blogs, deletePost, loading }) => {
 
   
