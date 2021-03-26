@@ -6,20 +6,30 @@ const CreateBlog = ({ addBlog }) => {
   const [title, setTitle] = useState('');
   const [blogContent, setBlogContent] = useState('');
   const [author, setAuthor] = useState('');
-  const history = useHistory()
+  const [err, setErr] = useState(false);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
     const blog = { title, blogContent, author}
-    
-    addBlog(blog);
-    history.push('/');
+   //Check if the input fiels are not empty
+    if(title !== '' && blogContent !== '' && author !== ''){
+      addBlog(blog);
+      history.push('/');
+    }else{
+  //If input fields are empty, then prompt users to enter a valid blogpost
+      setErr(true)
+      setTimeout(()=> {
+        setErr(false)
+      }, 2000)
+      history.push('/createblog');
+    }  
   }
-
 
   return (
     <form onSubmit={handleSubmit}>
+      {err && <h1 className="error-msg">Please enter a valid blog post</h1>}
       <div className="form-control">
         <label htmlFor="blog-title">Title</label>
         <input type="text" value={title} onChange={(e)=>{setTitle(e.target.value)}}/>
@@ -36,6 +46,7 @@ const CreateBlog = ({ addBlog }) => {
       </div>
 
       <button className="btn">Add Blog</button>
+      
       
     </form>
   )
