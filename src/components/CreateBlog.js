@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const CreateBlog = ({ addBlog }) => {
 
@@ -8,12 +9,14 @@ const CreateBlog = ({ addBlog }) => {
   const [author, setAuthor] = useState('');
   const [err, setErr] = useState(false);
   const history = useHistory();
+  const { user, isAuthenticated} = useAuth0();
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
     const blog = { title, blogContent, author}
-   //Check if the input fiels are not empty
+  //Check if the input fiels are not empty
     if(title !== '' && blogContent !== '' && author !== ''){
       addBlog(blog);
       history.push('/');
@@ -28,6 +31,7 @@ const CreateBlog = ({ addBlog }) => {
   }
 
   return (
+    isAuthenticated ? (
     <form onSubmit={handleSubmit}>
       {err && <h1 className="error-msg">Please enter a valid blog post</h1>}
       <div className="form-control">
@@ -45,11 +49,10 @@ const CreateBlog = ({ addBlog }) => {
         <input type="text" value={author} onChange={(e)=>{setAuthor(e.target.value)}}/>
       </div>
 
-      <button className="btn">Add Blog</button>
-      
-      
+      <button className="btn">Add Blog</button>  
     </form>
-  )
+  ) : <div>Please login or sign up to post a blog</div>
+  ) 
 }
 
 export default CreateBlog

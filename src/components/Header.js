@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import Login from './Login';
+import Logout from './Logout';
 
 const Header = () => {
   return (
@@ -7,6 +9,8 @@ const Header = () => {
         <div className="links">
         <Link className="link" to='/'>Home</Link>
         <Link className="link" to='/createblog'>Create Blog</Link>
+        <Login />
+        <Logout />
         </div>
     </div>
   )

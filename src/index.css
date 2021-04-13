@@ -41,6 +41,14 @@ a:hover {
   color: #f1356d;
 }
 
+.links {
+  display: flex;
+}
+
+.login-btn {
+  margin-left: 10px;
+}
+
 .no-link,
 .no-link:visited {
   color: #f1356d;
